@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pre-made Layouts</title>
+<link rel="stylesheet" href="../styles/hud.css">
+<style>
+  body { background-image: none; }
+  .card {
+    width: 1600px; height: 950px; transform-origin: 0 0; cursor: pointer;
+    border: 3px solid #444; box-shadow: 0 0 60px rgba(0, 0, 0, .9);
+    transition: transform .25s, border-color .25s, filter .25s; filter: brightness(.8);
+  }
+  .card iframe { width: 100%; height: 100%; border: 0; pointer-events: none; display: block; }
+  .card:hover { border-color: var(--red); filter: brightness(1.05); }
+  .heading { display: flex; align-items: center; gap: 22px; font-family: var(--font-display); font-size: 34px; }
+  .heading .n { background: var(--red); color: #1a0709; font-weight: 700; width: 46px; height: 46px; display: grid; place-items: center; }
+  .hint { color: var(--text-dim); font-size: 13px; letter-spacing: .1em; }
+</style>
+</head>
+<body>
+<div class="stage" id="stage">
+  <div class="heading" style="left:180px;top:110px"><span class="n">4</span>Pre-made layouts</div>
+  <div class="lbl hint" style="left:250px;top:168px">Click a screen to open it full size</div>
+</div>
+<script>
+  // Back-to-front, so the front card is drawn last and sits on top.
+  const cards = ["download.html", "layout-ops.html", "broadcast.html", "layout-globe.html"];
+  const stage = document.getElementById("stage");
+  cards.forEach((src, i) => {
+    const k = 3 - i; // 0 = front
+    const x = 228 + k * 240, y = 430 - k * 104;
+    const el = document.createElement("div");
+    el.className = "card";
+    el.innerHTML = `<iframe src="${src}" loading="lazy" tabindex="-1"></iframe>`;
+    const base = `translate(${x}px,${y}px) skewY(14deg) scale(.272)`;
+    el.style.transform = base;
+    el.onmouseenter = () => (el.style.transform = `translate(${x}px,${y - 24}px) skewY(14deg) scale(.272)`);
+    el.onmouseleave = () => (el.style.transform = base);
+    el.onclick = () => (location.href = src);
+    stage.appendChild(el);
+  });
+</script>
+<script src="../js/parts.js"></script>
+</body>
+</html>

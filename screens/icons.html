@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Abstract Icons</title>
+<link rel="stylesheet" href="../styles/hud.css">
+<style>
+  .cell { transition: transform .15s; }
+  .cell:hover { transform: scale(1.25); }
+  .cell:hover svg { --text: var(--red); }
+</style>
+</head>
+<body>
+<div class="stage" id="stage">
+  <div class="glow" style="left:1100px;top:-200px;width:700px;height:600px;opacity:.6"></div>
+  <div class="kit-title" style="left:350px;top:378px">
+    <div class="count">125<sup>+</sup></div>
+    <div class="words"><span>Abstract</span><b>Icons</b></div>
+  </div>
+</div>
+<script>
+  // 14 x 8 grid of icons; a block in the middle is left open for the title.
+  const stage = document.getElementById("stage");
+  const cols = 14, rows = 8, cw = 1600 / cols, ch = 950 / rows;
+  let i = 0;
+  for (let y = 0; y < rows; y++)
+    for (let x = 0; x < cols; x++) {
+      if ((y === 3 || y === 4) && x >= 3 && x <= 9) continue;
+      const el = document.createElement("div");
+      el.className = "cell";
+      el.dataset.part = "icon";
+      el.dataset.i = i;
+      if ((i * 7) % 11 === 0) el.dataset.red = "";
+      Object.assign(el.style, { left: `${x * cw + (cw - 70) / 2}px`, top: `${y * ch + (ch - 70) / 2}px`, width: "70px", height: "70px" });
+      stage.appendChild(el);
+      i++;
+    }
+</script>
+<script src="../js/parts.js"></script>
+</body>
+</html>

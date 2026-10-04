@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Layout: Operations</title>
+<link rel="stylesheet" href="../styles/hud.css">
+</head>
+<body>
+<!-- Third card of the kit's "4 pre-made layouts": globe in a side box, big Earth center, warning stripes. -->
+<div class="stage">
+  <!-- left column -->
+  <div class="panel" style="left:10px;top:10px;width:330px;height:460px"></div>
+  <div data-part="icon" data-i="37" style="left:24px;top:24px;width:30px;height:30px"></div>
+  <div data-part="dashes" data-red data-rows="4" style="left:70px;top:26px;width:160px;height:40px"></div>
+  <div data-part="globe" data-lat="2" data-lon="16" data-red style="left:40px;top:100px;width:270px;height:270px"></div>
+  <div class="lbl red" style="left:24px;top:430px;font-size:12px">Tracking</div>
+  <div data-part="braille" data-live data-rate="7" data-cols="14" data-rows="2" style="left:180px;top:420px;width:140px;height:28px"></div>
+  <div class="panel" style="left:10px;top:490px;width:330px;height:130px"></div>
+  <div data-part="gauge" data-value="25" style="left:24px;top:502px;width:104px;height:104px"></div>
+  <div data-part="gauge" data-value="60" data-red style="left:132px;top:502px;width:104px;height:104px"></div>
+  <div data-part="segs" data-red data-dot style="left:240px;top:506px;width:96px;height:96px"></div>
+  <div data-part="helix" data-live data-k="4" data-w="330" data-h="60" style="left:10px;top:640px;width:330px;height:60px"></div>
+  <div data-part="grid" data-live data-rate="3" data-cols="20" data-rows="4" data-w="330" data-h="80" style="left:10px;top:720px;width:330px;height:80px"></div>
+  <div data-part="dials" data-n="8" data-kind="disc" style="left:10px;top:820px;width:330px;height:40px"></div>
+  <div class="hazard white" style="left:10px;top:886px;width:330px;height:40px;opacity:.6"></div>
+
+  <!-- center -->
+  <div data-part="line" data-live data-k="18" data-w="880" data-h="30" style="left:360px;top:20px;width:880px;height:30px"></div>
+  <div class="hazard" style="left:360px;top:66px;width:880px;height:30px"></div>
+  <div class="banner" style="left:620px;top:56px;width:360px;height:50px;font-size:26px">Title goes here</div>
+  <div class="lbl dim" style="left:700px;top:118px">Subtitle here</div>
+  <div data-part="ticks" data-n="240" data-rand data-len="9" style="left:420px;top:140px;width:760px;height:760px;opacity:.5"></div>
+  <div data-part="earth" style="left:440px;top:160px;width:720px;height:720px"></div>
+  <div data-part="segs" data-red data-guides data-step="6" style="left:930px;top:180px;width:200px;height:200px;opacity:.8"></div>
+  <div data-part="stems" data-live data-rate="2" data-n="120" data-w="880" data-h="56" style="left:360px;top:880px;width:880px;height:56px"></div>
+
+  <!-- right column -->
+  <div class="panel" style="left:1260px;top:10px;width:330px;height:300px"></div>
+  <div data-part="radar" data-red style="left:1290px;top:30px;width:200px;height:200px"></div>
+  <div data-part="meters" data-live data-rate="4" data-rows="6" style="left:1500px;top:40px;width:80px;height:110px"></div>
+  <div data-part="dashes" data-rows="5" style="left:1280px;top:244px;width:290px;height:50px"></div>
+  <div data-part="bars" data-live data-mirror data-env="5" data-n="120" data-fill=".4" data-w="330" data-h="70" style="left:1260px;top:330px;width:330px;height:70px"></div>
+  <div class="panel" style="left:1260px;top:420px;width:330px;height:300px"></div>
+  <div data-part="globe" data-lat="9" data-lon="9" style="left:1300px;top:440px;width:250px;height:250px"></div>
+  <div data-part="map" data-which="africa" data-mx="44" data-my="60" style="left:1365px;top:500px;width:120px;height:130px;opacity:.8"></div>
+  <div data-part="dials" data-n="8" style="left:1260px;top:740px;width:330px;height:40px"></div>
+  <div data-part="barcode" data-live data-rate="3" data-w="330" data-h="30" style="left:1260px;top:800px;width:330px;height:30px"></div>
+  <div class="hazard white" style="left:1260px;top:850px;width:330px;height:30px;opacity:.6"></div>
+</div>
+<script src="../js/parts.js"></script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Rocket Launch</title>
+<link rel="stylesheet" href="../styles/hud.css">
+<style>
+  #rocket { animation: rumble .12s steps(2) infinite; }
+  @keyframes rumble { 50% { transform: translateX(1.5px); } }
+  .rocket-text { font-family: var(--font-display); font-weight: 700; font-size: 96px; fill: #1a1a1a; }
+</style>
+</head>
+<body>
+<div class="stage">
+  <canvas id="sparks" width="1600" height="950" style="left:0;top:0;width:1600px;height:950px"></canvas>
+
+  <!-- the rocket and its tower, drawn by hand -->
+  <svg id="rocket" viewBox="0 0 1600 950" style="left:0;top:0;width:1600px;height:950px">
+    <defs>
+      <linearGradient id="body" x1="0" x2="1">
+        <stop offset="0" stop-color="#ff4657"/><stop offset=".22" stop-color="#e9b9bd"/>
+        <stop offset=".55" stop-color="#f2f2f2"/><stop offset="1" stop-color="#8d8d8d"/>
+      </linearGradient>
+      <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+        <stop offset=".7" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".8"/>
+      </linearGradient>
+    </defs>
+    <!-- tower -->
+    <g stroke="#9a9a9a" stroke-width="2" fill="none">
+      <path d="M866 600V950M994 600V950M866 600H994"/>
+      <path d="M866 620L994 680M994 620L866 680M866 680L994 740M994 680L866 740M866 740L994 800M994 740L866 800M866 800L994 860M994 800L866 860M866 860L994 920M994 860L866 920"/>
+      <path d="M866 680H994M866 740H994M866 800H994M866 860H994M866 920H994"/>
+      <rect x="896" y="588" width="70" height="40" fill="#222"/>
+    </g>
+    <circle cx="866" cy="600" r="4" fill="#ff4657"/><circle cx="994" cy="600" r="4" fill="#ff4657"/>
+    <!-- rocket -->
+    <path d="M766 38L770 120H762Z" fill="#cfcfcf"/>
+    <rect x="760" y="120" width="12" height="60" fill="#d8d8d8"/>
+    <path d="M736 182H798V280H736Z" fill="url(#body)"/>
+    <path d="M736 280H798L836 420H698Z" fill="url(#body)"/>
+    <rect x="732" y="290" width="70" height="6" fill="#111"/>
+    <rect x="698" y="420" width="138" height="530" fill="url(#body)"/>
+    <rect x="698" y="530" width="138" height="12" fill="#111"/>
+    <path d="M738 470h14v28h-14zM820 470h12v28h-12z" fill="#bbb"/>
+    <text class="rocket-text" x="767" y="660" text-anchor="middle">U</text>
+    <text class="rocket-text" x="767" y="790" text-anchor="middle">S</text>
+    <text class="rocket-text" x="767" y="920" text-anchor="middle">A</text>
+    <rect x="690" y="820" width="320" height="18" fill="#2a2a2a"/>
+    <rect x="0" y="0" width="1600" height="950" fill="url(#fade)"/>
+  </svg>
+
+  <!-- callout lines -->
+  <svg class="hud" viewBox="0 0 1600 950" style="left:0;top:0;width:1600px;height:950px;pointer-events:none">
+    <path d="M327 376H594L700 480"/><circle cx="327" cy="376" r="5" class="fr"/>
+    <path d="M1272 922H1100L1000 830"/><circle cx="1272" cy="922" r="5" class="fr"/>
+  </svg>
+
+  <!-- left column -->
+  <div data-part="globe" data-lat="8" data-lon="5" data-dim style="left:-30px;top:-40px;width:90px;height:90px"></div>
+  <div data-part="meters" data-rows="3" style="left:64px;top:0;width:70px;height:42px"></div>
+  <div data-part="dashes" data-allred data-rows="5" style="left:150px;top:2px;width:160px;height:46px"></div>
+  <div class="panel" style="left:0;top:66px;width:312px;height:306px"></div>
+  <div class="lbl" style="left:196px;top:78px;font-size:11px">System online</div>
+  <div data-part="globe" data-lat="2" data-lon="14" data-orbit style="left:30px;top:100px;width:240px;height:240px"></div>
+  <div class="lbl red" style="left:4px;top:350px;font-size:11px">All stable</div>
+  <div class="panel" style="left:0;top:392px;width:312px;height:56px"></div>
+  <div data-part="grid" data-live data-rate="3" data-cols="24" data-rows="3" data-w="300" data-h="42" style="left:6px;top:399px;width:300px;height:42px"></div>
+  <div class="lbl" style="left:96px;top:472px;font-size:15px">Perfect for</div>
+  <div class="banner ghost bracket" style="left:4px;top:504px;width:296px;height:40px;font-size:24px;background:rgba(255,70,87,.12)">Hi-tech graphics</div>
+  <div data-part="bars" data-live data-mirror data-n="120" data-fill=".3" data-w="312" data-h="36" style="left:0;top:572px;width:312px;height:36px"></div>
+  <div data-part="barcode" data-w="312" data-h="6" style="left:0;top:620px;width:312px;height:6px"></div>
+  <div class="panel" style="left:0;top:638px;width:312px;height:320px"></div>
+  <div data-part="icon" data-i="15" style="left:6px;top:668px;width:28px;height:28px"></div>
+  <div data-part="ticks" data-n="72" data-len="40" data-red style="left:30px;top:666px;width:240px;height:240px;opacity:.35"></div>
+  <div data-part="segs" data-guides data-still data-step="9" data-red style="left:30px;top:666px;width:240px;height:240px"></div>
+  <div data-part="icon" data-i="61" style="left:276px;top:876px;width:28px;height:28px"></div>
+
+  <!-- right column -->
+  <div data-part="icon" data-i="13" style="left:1288px;top:0;width:56px;height:56px"></div>
+  <div data-part="dashes" data-rows="5" style="left:1362px;top:4px;width:180px;height:44px"></div>
+  <div data-part="meters" data-rows="3" style="left:1556px;top:2px;width:44px;height:42px"></div>
+  <div class="panel" style="left:1288px;top:66px;width:312px;height:306px"></div>
+  <div class="lbl red" style="left:1300px;top:78px;font-size:11px">Set course</div>
+  <div data-part="segs" data-red data-step="7" data-dot style="left:1328px;top:96px;width:250px;height:250px"></div>
+  <div class="lbl red" style="left:1520px;top:350px;font-size:11px">Full power</div>
+  <div class="panel" style="left:1288px;top:392px;width:312px;height:56px"></div>
+  <div data-part="bars" data-live data-n="70" data-fill=".35" data-w="300" data-h="34" style="left:1294px;top:403px;width:300px;height:34px"></div>
+  <div data-part="radar" style="left:1288px;top:462px;width:92px;height:92px"></div>
+  <div data-part="radar" data-red style="left:1404px;top:462px;width:92px;height:92px"></div>
+  <div data-part="radar" style="left:1520px;top:462px;width:92px;height:92px"></div>
+  <div data-part="dotwave" data-live data-n="90" data-k="12" data-speed=".3" data-w="312" data-h="20" style="left:1288px;top:572px;width:312px;height:20px"></div>
+  <div data-part="barcode" data-w="312" data-h="6" style="left:1288px;top:620px;width:312px;height:6px"></div>
+  <div class="panel" style="left:1288px;top:638px;width:312px;height:320px"></div>
+  <div data-part="icon" data-i="11" style="left:1296px;top:656px;width:28px;height:28px"></div>
+  <div data-part="icon" data-i="13" style="left:1550px;top:656px;width:36px;height:36px"></div>
+  <div data-part="globe" data-lat="10" data-lon="9" data-dim style="left:1330px;top:670px;width:230px;height:230px"></div>
+  <div data-part="map" data-which="africa" style="left:1400px;top:720px;width:120px;height:130px;opacity:.7"></div>
+</div>
+
+<script>
+  // Red and white sparks drifting up and out from the base of the rocket.
+  const cv = document.getElementById("sparks"), cx = cv.getContext("2d"), sparks = [];
+  function spawn() {
+    return { x: 700 + Math.random() * 300, y: 950, vx: (Math.random() - 0.5) * 2.4, vy: -0.6 - Math.random() * 2.2,
+      r: 1 + Math.random() * 3, life: 0, max: 120 + Math.random() * 200, red: Math.random() < 0.7 };
+  }
+  for (let i = 0; i < 220; i++) { const s = spawn(); s.life = Math.random() * s.max; s.x += s.vx * s.life; s.y += s.vy * s.life; sparks.push(s); }
+  (function loop() {
+    cx.clearRect(0, 0, 1600, 950);
+    for (let i = 0; i < sparks.length; i++) {
+      const s = sparks[i];
+      s.x += s.vx; s.y += s.vy; s.life++;
+      if (s.life > s.max) { sparks[i] = spawn(); continue; }
+      const a = 1 - s.life / s.max;
+      cx.fillStyle = s.red ? `rgba(255,70,87,${a})` : `rgba(255,255,255,${a * 0.8})`;
+      cx.shadowColor = s.red ? "#ff4657" : "#fff";
+      cx.shadowBlur = 8;
+      cx.beginPath(); cx.arc(s.x, s.y, s.r, 0, Math.PI * 2); cx.fill();
+    }
+    requestAnimationFrame(loop);
+  })();
+</script>
+<script src="../js/parts.js"></script>
+</body>
+</html>

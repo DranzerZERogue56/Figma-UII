@@ -1,0 +1,24 @@
+/* Shared look for every mock-up, matched by eye to the Figma "Futuristic UI Kit" pictures.
+   Colors were sampled straight from the pictures; the fonts are free stand-ins chosen to
+   look close, since the kit's real font isn't recorded in the Figma file. */
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Share+Tech+Mono&display=swap");
+
+:root {
+  /* colors */
+  --bg: #0a0a0a;            /* near-black screen background */
+  --panel: #101010;         /* slightly lifted boxes */
+  --line: #3a3a3a;          /* thin panel borders and grid lines */
+  --text: #e8e8e8;          /* main white-ish text and line art */
+  --text-dim: #8a8a8a;      /* secondary labels */
+  --red: #ff4657;           /* the one accent color: banners, warnings, highlights */
+  --red-deep: #ea3e4c;      /* red on darker areas */
+  --red-glow: rgba(255, 70, 87, 0.35);
+
+  /* fonts */
+  --font-display: "Chakra Petch", "Eurostile", sans-serif;  /* big titles, banners */
+  --font-mono: "Share Tech Mono", ui-monospace, monospace;  /* small labels, numbers */
+
+  /* sizes */
+  --stroke: 1px;            /* almost everything is drawn with hairlines */
+  --gap: 16px;
+}

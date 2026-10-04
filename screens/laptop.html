@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Laptop</title>
+<link rel="stylesheet" href="../styles/hud.css">
+<style>
+  body { background: #000; background-image: none; }
+  .stage::after { display: none; }
+  .scene { left: 0; top: 0; width: 1600px; height: 950px; perspective: 2200px; }
+  .laptop { position: absolute; left: 560px; top: 160px; width: 560px; transform-style: preserve-3d; transform: rotateX(-22deg) rotateY(-28deg); animation: sway 9s ease-in-out infinite alternate; }
+  @keyframes sway { to { transform: rotateX(-22deg) rotateY(-12deg); } }
+  .lid { position: relative; width: 560px; height: 380px; background: linear-gradient(160deg, #262626, #0b0b0b); border-radius: 10px 10px 4px 4px; padding: 26px 30px 30px; box-shadow: inset 0 0 0 2px #1d1d1d, 0 0 0 1px #333; transform-origin: bottom; transform: rotateX(-4deg); }
+  .screen { width: 500px; height: 296px; overflow: hidden; background: #000; box-shadow: 0 0 40px rgba(255, 70, 87, .25); }
+  .screen iframe { width: 1600px; height: 950px; border: 0; transform: scale(.3125); transform-origin: 0 0; pointer-events: none; }
+  .glare { position: absolute; inset: 26px 30px 30px; background: linear-gradient(115deg, rgba(255,255,255,.08), transparent 40%); pointer-events: none; }
+  .base { position: relative; width: 600px; height: 330px; margin-left: -20px; background: linear-gradient(180deg, #2a2a2a, #111); border-radius: 4px 4px 14px 14px; transform-origin: top; transform: rotateX(90deg); box-shadow: 0 30px 60px rgba(0, 0, 0, .9), 0 0 0 1px #2a2a2a; }
+  .keys { position: absolute; left: 50px; top: 30px; right: 50px; height: 170px; display: grid; grid-template-columns: repeat(14, 1fr); gap: 5px; }
+  .keys span { background: #1b1b1b; border-radius: 3px; box-shadow: 0 2px 0 #050505, inset 0 1px 0 #2a2a2a; }
+  .ball { position: absolute; left: 270px; top: 230px; width: 60px; height: 60px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #444, #000); }
+  .caption { left: 0; width: 1600px; top: 860px; text-align: center; color: var(--text-dim); }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="scene">
+    <div class="laptop">
+      <div class="lid">
+        <div class="screen"><iframe src="download.html" tabindex="-1"></iframe></div>
+        <div class="glare"></div>
+      </div>
+      <div class="base"><div class="keys" id="keys"></div><div class="ball"></div></div>
+    </div>
+  </div>
+  <div class="lbl caption">Example use: the Download screen on a retro laptop</div>
+</div>
+<script>
+  document.getElementById("keys").innerHTML = "<span></span>".repeat(14 * 5);
+</script>
+<script src="../js/parts.js"></script>
+</body>
+</html>

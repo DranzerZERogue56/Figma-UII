@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Download</title>
+<link rel="stylesheet" href="../styles/hud.css">
+</head>
+<body>
+<div class="stage">
+  <!-- top strip -->
+  <div data-part="segs" data-red data-dot style="left:6px;top:-26px;width:110px;height:110px"></div>
+  <div data-part="segs" data-dot style="left:144px;top:-26px;width:110px;height:110px"></div>
+  <div data-part="segs" data-red data-dot style="left:282px;top:-26px;width:110px;height:110px"></div>
+  <div data-part="segs" data-dot style="left:420px;top:-26px;width:110px;height:110px"></div>
+  <div class="panel" style="left:612px;top:-2px;width:376px;height:36px"></div>
+  <div class="hazard white" style="left:616px;top:2px;width:368px;height:28px;opacity:.85"></div>
+  <div data-part="braille" data-live data-rate="6" data-cols="38" data-rows="1" style="left:612px;top:48px;width:380px;height:16px"></div>
+  <div data-part="gauge" data-value="60" data-red style="left:1000px;top:-62px;width:130px;height:130px"></div>
+  <div data-part="gauge" data-value="75" data-red style="left:1144px;top:-62px;width:130px;height:130px"></div>
+  <div data-part="icon" data-i="15" style="left:1292px;top:24px;width:40px;height:40px"></div>
+  <div data-part="dashes" data-allred data-rows="4" style="left:1346px;top:20px;width:244px;height:48px"></div>
+
+  <!-- second row -->
+  <div data-part="dashes" data-red data-rows="10" style="left:8px;top:92px;width:262px;height:106px"></div>
+  <div data-part="stems" data-live data-rate="2" data-n="110" data-w="1040" data-h="84" style="left:282px;top:92px;width:1040px;height:84px"></div>
+  <div data-part="meters" data-live data-rate="4" data-rows="4" style="left:1346px;top:92px;width:110px;height:110px"></div>
+  <div data-part="meters" data-live data-rate="5" data-rows="4" style="left:1482px;top:92px;width:110px;height:110px"></div>
+
+  <!-- left side -->
+  <div class="lbl" style="left:306px;top:196px">Identification</div>
+  <div class="panel" style="left:8px;top:226px;width:466px;height:84px"></div>
+  <div data-part="helix" data-live data-speed=".25" data-w="460" data-h="72" style="left:11px;top:232px;width:460px;height:72px"></div>
+  <div data-part="bars" data-live data-rate="3" data-n="46" data-fill=".6" data-w="466" data-h="84" style="left:8px;top:336px;width:466px;height:84px"></div>
+
+  <!-- right side -->
+  <div class="lbl red" style="left:1128px;top:196px">Frequency</div>
+  <div class="panel" style="left:1128px;top:226px;width:464px;height:72px"></div>
+  <div data-part="bars" data-live data-mirror data-env="4" data-n="150" data-fill=".4" data-w="456" data-h="60" style="left:1132px;top:232px;width:456px;height:60px"></div>
+  <div class="lbl" style="left:1440px;top:306px">Data analysis</div>
+  <div data-part="grid" data-live data-rate="4" data-cols="16" data-rows="5" data-w="466" data-h="84" style="left:1128px;top:334px;width:466px;height:84px"></div>
+
+  <!-- the red warning band right across the screen -->
+  <div class="hazard" style="left:0;top:446px;width:1600px;height:56px"></div>
+
+  <!-- center panel: globe, status icons, DOWNLOAD banner -->
+  <div class="panel solid" style="left:486px;top:200px;width:628px;height:600px"></div>
+  <div data-part="bezel" style="left:556px;top:214px;width:488px;height:488px"></div>
+  <div data-part="globe" data-lat="12" data-lon="10" data-redrim style="left:600px;top:258px;width:400px;height:400px"></div>
+  <div data-part="icon" data-i="64" style="left:512px;top:256px;width:30px;height:30px"></div>
+  <div class="lbl red" style="left:554px;top:260px;font-size:16px">Error</div>
+  <div data-part="icon" data-i="65" style="left:1058px;top:256px;width:30px;height:30px"></div>
+  <div data-part="icon" data-i="58" data-red style="left:512px;top:338px;width:30px;height:30px"></div>
+  <div data-part="icon" data-i="36" data-red style="left:1058px;top:338px;width:30px;height:30px"></div>
+  <div data-part="icon" data-i="53" data-red style="left:512px;top:584px;width:30px;height:30px"></div>
+  <div data-part="icon" data-i="66" data-red style="left:1058px;top:584px;width:30px;height:30px"></div>
+  <div data-part="icon" data-i="13" style="left:512px;top:664px;width:30px;height:30px"></div>
+  <div data-part="icon" data-i="31" style="left:1058px;top:664px;width:30px;height:30px"></div>
+  <div class="lbl red blink" style="left:974px;top:676px;font-size:16px">Offline</div>
+  <div data-part="icon" data-i="41" style="left:512px;top:744px;width:30px;height:30px"></div>
+  <div data-part="dotwave" data-live data-speed=".35" data-n="70" data-k="7" data-w="480" data-h="30" style="left:556px;top:744px;width:480px;height:30px"></div>
+  <div data-part="icon" data-i="11" data-red style="left:1058px;top:744px;width:30px;height:30px"></div>
+  <div class="banner bracket" style="left:526px;top:420px;width:548px;height:110px;font-size:72px">Download</div>
+
+  <!-- below the band -->
+  <div data-part="bars" data-live data-mirror data-red data-n="170" data-fill=".22" data-w="466" data-h="84" style="left:8px;top:526px;width:466px;height:84px;opacity:.85"></div>
+  <div data-part="bars" data-live data-mirror data-red data-n="170" data-fill=".22" data-w="466" data-h="84" style="left:1128px;top:526px;width:466px;height:84px;opacity:.85"></div>
+  <div data-part="gauge" data-value="40" data-red style="left:8px;top:636px;width:160px;height:160px"></div>
+  <div class="panel" style="left:186px;top:636px;width:272px;height:166px"></div>
+  <div data-part="dashes" data-rows="4" style="left:200px;top:650px;width:244px;height:44px"></div>
+  <div data-part="dashes" data-allred data-rows="4" style="left:200px;top:730px;width:244px;height:44px"></div>
+  <div data-part="radar" data-red style="left:1126px;top:636px;width:140px;height:140px"></div>
+  <div data-part="radar" data-red style="left:1290px;top:636px;width:140px;height:140px"></div>
+  <div data-part="radar" data-red style="left:1454px;top:636px;width:140px;height:140px"></div>
+  <div class="lbl red" style="left:1184px;top:786px">01</div>
+  <div class="lbl red" style="left:1348px;top:786px">02</div>
+  <div class="lbl red" style="left:1512px;top:786px">03</div>
+
+  <!-- bottom noise line -->
+  <div data-part="bars" data-live data-mirror data-n="300" data-fill=".3" data-w="1600" data-h="80" style="left:0;top:826px;width:1600px;height:80px"></div>
+  <div data-part="dials" data-kind="disc" data-n="10" style="left:400px;top:912px;width:800px;height:40px;opacity:.6"></div>
+</div>
+<script src="../js/parts.js"></script>
+</body>
+</html>

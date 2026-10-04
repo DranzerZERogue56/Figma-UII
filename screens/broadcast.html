@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Broadcast</title>
+<link rel="stylesheet" href="../styles/hud.css">
+</head>
+<body>
+<div class="stage">
+  <div class="glow" style="left:330px;top:120px;width:560px;height:640px"></div>
+
+  <!-- top center: title + four spinning discs -->
+  <div class="banner ghost bracket" style="left:632px;top:12px;width:336px;height:46px;font-size:25px">Broadcast Design</div>
+  <div data-part="segs" data-red style="left:440px;top:8px;width:56px;height:56px"></div>
+  <div data-part="segs" style="left:522px;top:8px;width:56px;height:56px"></div>
+  <div data-part="segs" style="left:1022px;top:8px;width:56px;height:56px"></div>
+  <div data-part="segs" data-red style="left:1104px;top:8px;width:56px;height:56px"></div>
+
+  <!-- top left: USA map -->
+  <div class="panel" style="left:8px;top:8px;width:408px;height:274px"></div>
+  <div data-part="map" data-which="usa" data-mx="64" data-my="40" style="left:24px;top:20px;width:340px;height:190px"></div>
+  <div data-part="icon" data-i="11" style="left:362px;top:162px;width:28px;height:28px"></div>
+  <div data-part="bars" data-live data-rate="2" data-n="110" data-w="384" data-h="50" data-fill=".35" style="left:18px;top:220px;width:384px;height:50px;opacity:.55"></div>
+
+  <!-- left column: dials and dot "text" -->
+  <div data-part="gauge" data-value="25" style="left:0;top:318px;width:150px;height:150px"></div>
+  <div data-part="gauge" data-value="40" style="left:0;top:508px;width:150px;height:150px"></div>
+  <div data-part="braille" data-live data-rate="8" data-cols="13" data-rows="3" style="left:188px;top:326px;width:134px;height:84px"></div>
+  <div data-part="braille" data-live data-rate="9" data-cols="13" data-rows="3" style="left:188px;top:448px;width:134px;height:84px"></div>
+  <div data-part="braille" data-live data-rate="7" data-cols="13" data-rows="3" style="left:188px;top:566px;width:134px;height:84px"></div>
+  <div data-part="grid" data-live data-rate="3" data-red data-cols="28" data-rows="3" data-w="410" data-h="44" style="left:4px;top:698px;width:410px;height:44px"></div>
+  <div data-part="dials" data-n="7" style="left:4px;top:762px;width:410px;height:56px"></div>
+
+  <!-- bottom left: small globe + text lines -->
+  <div class="panel" style="left:8px;top:830px;width:408px;height:130px"></div>
+  <div data-part="globe" data-lat="9" data-lon="8" data-dim style="left:30px;top:848px;width:112px;height:112px"></div>
+  <div data-part="dashes" data-rows="5" style="left:182px;top:858px;width:200px;height:56px"></div>
+
+  <!-- center: the Earth -->
+  <div data-part="ticks" data-n="240" data-rand data-len="9" style="left:420px;top:100px;width:760px;height:760px;opacity:.6"></div>
+  <div data-part="earth" style="left:440px;top:120px;width:720px;height:720px"></div>
+  <svg class="hud" viewBox="0 0 1600 950" style="left:0;top:0;width:1600px;height:950px;pointer-events:none">
+    <ellipse cx="800" cy="480" rx="430" ry="250" transform="rotate(-40 800 480)" class="d" style="stroke-dasharray:14 8"/>
+    <path d="M416 172H540L660 292"/><circle cx="416" cy="172" r="5" class="fr"/>
+    <path d="M1185 748H1100L897 542"/><circle cx="1185" cy="748" r="5" class="fr"/>
+    <circle cx="897" cy="542" r="10" class="fr blink"/>
+  </svg>
+  <div class="lbl red" style="left:440px;top:186px;font-size:12px">USA.</div>
+  <div class="lbl red" style="left:1120px;top:762px;font-size:12px">Africa</div>
+  <div data-part="dials" data-kind="disc" data-n="3" style="left:1018px;top:826px;width:140px;height:46px"></div>
+  <div data-part="bars" data-live data-red data-n="150" data-w="720" data-h="60" data-fill=".3" style="left:440px;top:888px;width:720px;height:60px"></div>
+
+  <!-- top right -->
+  <div class="panel" style="left:1186px;top:0;width:414px;height:118px"></div>
+  <div data-part="dashes" data-rows="6" style="left:1222px;top:10px;width:200px;height:80px"></div>
+  <div data-part="globe" data-lat="9" data-lon="8" data-dim style="left:1458px;top:2px;width:110px;height:110px"></div>
+  <div data-part="line" data-live data-k="14" data-w="414" data-h="24" data-speed=".5" style="left:1186px;top:134px;width:414px;height:24px"></div>
+  <div data-part="barcode" data-live data-rate="2" data-w="414" data-h="26" style="left:1186px;top:172px;width:414px;height:26px"></div>
+
+  <!-- right column: dot "text" and dials -->
+  <div data-part="braille" data-live data-rate="8" data-cols="13" data-rows="3" style="left:1288px;top:240px;width:132px;height:84px"></div>
+  <div data-part="braille" data-live data-rate="9" data-cols="13" data-rows="3" style="left:1288px;top:362px;width:132px;height:84px"></div>
+  <div data-part="braille" data-live data-rate="7" data-cols="13" data-rows="3" style="left:1288px;top:480px;width:132px;height:84px"></div>
+  <div data-part="gauge" data-value="60" style="left:1450px;top:236px;width:150px;height:150px"></div>
+  <div data-part="gauge" data-value="75" style="left:1450px;top:428px;width:150px;height:150px"></div>
+  <div data-part="barcode" data-w="414" data-h="16" style="left:1186px;top:630px;width:414px;height:16px"></div>
+
+  <!-- bottom right: Africa map -->
+  <div class="panel" style="left:1186px;top:666px;width:414px;height:290px"></div>
+  <div data-part="map" data-which="africa" data-mx="44" data-my="60" style="left:1236px;top:688px;width:260px;height:250px"></div>
+  <div data-part="icon" data-i="19" style="left:1500px;top:692px;width:26px;height:26px"></div>
+  <div data-part="icon" data-i="11" style="left:1540px;top:692px;width:26px;height:26px"></div>
+  <div data-part="icon" data-i="49" style="left:1540px;top:880px;width:26px;height:26px"></div>
+</div>
+<script src="../js/parts.js"></script>
+</body>
+</html>

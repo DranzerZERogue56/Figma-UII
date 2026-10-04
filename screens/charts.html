@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Diagrams &amp; Charts</title>
+<link rel="stylesheet" href="../styles/hud.css">
+</head>
+<body>
+<div class="stage" id="stage">
+  <div class="glow" style="left:400px;top:150px;width:800px;height:650px;opacity:.6"></div>
+  <div class="kit-title" style="left:522px;top:366px;gap:30px">
+    <div class="count" style="font-size:100px;line-height:150px">36<sup>+</sup></div>
+    <div class="words" style="font-size:64px"><span>Diagrams</span><b>&amp; Charts</b></div>
+  </div>
+</div>
+<script>
+  // Three columns of chart strips, each row 66px tall. null = gap left for the title.
+  const L = { live: "" };
+  const columns = [
+    { x: 0, w: 505, rows: [
+      { part: "bars", n: 120, fill: ".5", red: "", ...L, rate: 2 },
+      { part: "chain" },
+      { part: "dials", n: 7, kind: "radar" },
+      { part: "bars", n: 140, fill: ".4", ...L, rate: 2 },
+      { part: "bars", n: 200, fill: ".3", mirror: "", ...L },
+      { part: "bars", n: 160, fill: ".4", mirror: "", env: 4, ...L },
+      { part: "braille", cols: 50, rows: 2 },
+      { part: "helix", k: 5, ...L, speed: ".25" },
+      { part: "dashes", rows: 4 },
+      { part: "helix", k: 1, n: 80, ...L, speed: ".2" },
+      { part: "grid", cols: 26, rows: 3, ...L, rate: 4 },
+      { part: "dials", n: 7 },
+      { part: "bars", n: 140, fill: ".4", ...L, rate: 3 },
+    ]},
+    { x: 530, w: 540, rows: [
+      { part: "dials", n: 6, kind: "disc" },
+      { part: "bars", n: 220, fill: ".3", mirror: "", ...L },
+      { part: "stems", n: 90, ...L, rate: 2 },
+      { part: "dials", n: 6, kind: "disc" },
+      { part: "dotwave", n: 60, k: 8, ...L, speed: ".3" },
+      null, null,
+      { part: "bars", n: 40, fill: ".7", ...L, rate: 3 },
+      { part: "line", k: 6, red: "", ...L, speed: ".3" },
+      { part: "stems", n: 140 },
+      { part: "bars", n: 260, fill: ".3", mirror: "", red: "", ...L },
+      { part: "chain", red: "" },
+      { part: "bars", n: 200, fill: ".35", mirror: "", red: "", ...L },
+    ]},
+    { x: 1095, w: 505, rows: [
+      { part: "hazardbar" },
+      { part: "bars", n: 160, fill: ".4", mirror: "", env: 7, ...L },
+      { part: "line", type: "zig", red: "", marks: "", ...L, rate: 3 },
+      { part: "bars", n: 120, fill: ".5", red: "", ...L, rate: 2 },
+      { part: "grid", cols: 26, rows: 4, ...L, rate: 3 },
+      { part: "dotwave", n: 90, k: 5, red: "", ...L, speed: ".25" },
+      { part: "barcode", ...L, rate: 3 },
+      { part: "stems", n: 110, ...L, rate: 3 },
+      { part: "dials", n: 9 },
+      { part: "braille", cols: 50, rows: 2 },
+      { part: "bars", n: 90, fill: ".5", hollow: "", ...L, rate: 3 },
+      { part: "line", type: "ecg", ...L, speed: ".5" },
+      { part: "grid", cols: 30, rows: 2, ...L, rate: 5 },
+    ]},
+  ];
+  const stage = document.getElementById("stage");
+  for (const col of columns)
+    col.rows.forEach((spec, i) => {
+      if (!spec) return;
+      const el = document.createElement("div");
+      const top = 12 + i * 72, h = 52;
+      Object.assign(el.style, { left: `${col.x}px`, top: `${top}px`, width: `${col.w}px`, height: `${h}px` });
+      if (spec.part === "hazardbar") {
+        el.innerHTML = `<div class="hazard" style="position:absolute;inset:8px 260px 8px 0;border:1px solid var(--red)"></div>` +
+          `<div class="hazard white" style="position:absolute;inset:8px 0 8px 260px;opacity:.6;border:1px solid var(--text)"></div>`;
+      } else {
+        for (const [k, v] of Object.entries(spec)) el.dataset[k] = v;
+        // dials and braille keep their own shape; everything else is drawn to fill the row
+        if (!["dials", "braille"].includes(spec.part)) { el.dataset.w = col.w; el.dataset.h = h; }
+      }
+      stage.appendChild(el);
+    });
+</script>
+<script src="../js/parts.js"></script>
+</body>
+</html>

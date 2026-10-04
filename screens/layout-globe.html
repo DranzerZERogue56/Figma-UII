@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Layout: Globe</title>
+<link rel="stylesheet" href="../styles/hud.css">
+</head>
+<body>
+<!-- Front card of the kit's "4 pre-made layouts": big world globe with a title, red dot-spheres either side. -->
+<div class="stage">
+  <div class="glow" style="left:1000px;top:420px;width:600px;height:600px"></div>
+
+  <!-- left column -->
+  <div class="panel" style="left:10px;top:10px;width:300px;height:200px"></div>
+  <div data-part="dashes" data-rows="10" style="left:24px;top:24px;width:110px;height:100px"></div>
+  <div data-part="segs" data-red data-dot style="left:144px;top:20px;width:110px;height:110px"></div>
+  <div data-part="meters" data-rows="3" style="left:262px;top:30px;width:40px;height:42px"></div>
+  <div data-part="line" data-live data-red data-k="5" data-w="280" data-h="40" style="left:20px;top:150px;width:280px;height:40px"></div>
+  <div class="panel" style="left:10px;top:226px;width:300px;height:330px"></div>
+  <div data-part="dotsphere" data-red data-n="420" style="left:40px;top:250px;width:240px;height:240px"></div>
+  <div class="lbl dim" style="left:24px;top:520px;font-size:11px">Mesh status</div>
+  <div data-part="dotwave" data-live data-red data-k="10" data-n="70" data-w="300" data-h="26" style="left:10px;top:578px;width:300px;height:26px"></div>
+  <div class="panel" style="left:10px;top:622px;width:300px;height:170px"></div>
+  <div data-part="dials" data-n="6" style="left:20px;top:636px;width:280px;height:46px"></div>
+  <div data-part="gauge" data-value="40" style="left:24px;top:690px;width:90px;height:90px"></div>
+  <div data-part="gauge" data-value="60" style="left:114px;top:690px;width:90px;height:90px"></div>
+  <div data-part="gauge" data-value="75" data-red style="left:204px;top:690px;width:90px;height:90px"></div>
+  <div data-part="segs" data-dot style="left:24px;top:812px;width:110px;height:110px"></div>
+  <div data-part="bars" data-live data-n="60" data-fill=".4" data-w="160" data-h="60" style="left:146px;top:836px;width:160px;height:60px"></div>
+
+  <!-- center globe + title -->
+  <div class="banner" style="left:640px;top:70px;width:300px;height:54px;font-size:28px">Title here</div>
+  <div class="lbl" style="left:690px;top:138px">Second line text</div>
+  <div data-part="ticks" data-n="180" data-rand data-len="10" style="left:420px;top:150px;width:760px;height:760px;opacity:.5"></div>
+  <div data-part="globe" data-lat="14" data-lon="14" data-dim style="left:460px;top:190px;width:680px;height:680px"></div>
+  <div data-part="map" data-which="africa" style="left:780px;top:430px;width:230px;height:250px;opacity:.8"></div>
+  <svg class="hud" viewBox="0 0 1600 950" style="left:0;top:0;width:1600px;height:950px;pointer-events:none">
+    <path d="M310 380H420L560 420"/><circle cx="560" cy="420" r="6" class="fr blink"/>
+    <path d="M1290 470H1180L900 560"/><circle cx="900" cy="560" r="8" class="fr blink"/>
+    <ellipse cx="800" cy="530" rx="400" ry="120" transform="rotate(-18 800 530)" class="d" style="stroke-dasharray:10 8"/>
+  </svg>
+  <div data-part="segs" style="left:470px;top:820px;width:90px;height:90px"></div>
+  <div data-part="dotwave" data-live data-n="60" data-k="5" data-w="400" data-h="30" style="left:600px;top:900px;width:400px;height:30px"></div>
+
+  <!-- right column -->
+  <div class="panel" style="left:1290px;top:10px;width:300px;height:250px"></div>
+  <div data-part="braille" data-live data-rate="8" data-cols="22" data-rows="5" style="left:1306px;top:24px;width:220px;height:70px"></div>
+  <div data-part="icon" data-i="21" style="left:1540px;top:24px;width:34px;height:34px"></div>
+  <div data-part="bars" data-live data-red data-n="70" data-fill=".4" data-w="270" data-h="80" style="left:1306px;top:110px;width:270px;height:80px"></div>
+  <div data-part="dashes" data-rows="4" style="left:1306px;top:206px;width:200px;height:40px"></div>
+  <div class="panel" style="left:1290px;top:276px;width:300px;height:180px"></div>
+  <div data-part="radar" data-red style="left:1300px;top:290px;width:150px;height:150px"></div>
+  <div data-part="meters" data-live data-rate="4" data-rows="6" style="left:1466px;top:304px;width:110px;height:110px"></div>
+  <div data-part="dotsphere" data-red data-n="420" style="left:1310px;top:560px;width:280px;height:280px"></div>
+  <div data-part="grid" data-live data-rate="4" data-cols="20" data-rows="2" data-w="300" data-h="30" style="left:1290px;top:880px;width:300px;height:30px"></div>
+</div>
+<script src="../js/parts.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Circular Elements</title>
+<link rel="stylesheet" href="../styles/hud.css">
+</head>
+<body>
+<div class="stage" id="stage">
+  <div class="glow" style="left:300px;top:200px;width:700px;height:600px;opacity:.7"></div>
+  <div class="kit-title" style="left:420px;top:380px">
+    <div class="count">36<sup>+</sup></div>
+    <div class="words"><span>Circular</span><b>Elements</b></div>
+  </div>
+</div>
+<script>
+  // 8 x 5 grid of round pieces; the middle of row 3 is left open for the title.
+  const rows = [
+    [{ part: "segs", red: "" }, { part: "globe", orbit: "", lat: 8, lon: 8 }, { part: "segs", guides: "", still: "", step: 5 }, { part: "ticks", n: 48, len: 10 },
+     { part: "ticks", n: 140, rand: "", len: 32, inner: "", red: "" }, { part: "dotsphere", red: "" }, { part: "segs", red: "", dot: "" }, { part: "globe", lat: 22, lon: 0 }],
+    [{ part: "dashrings" }, { part: "globe", lat: 8, lon: 12, dim: "" }, { part: "sectors", n: 12 }, { part: "globe", lat: 12, lon: 10, red: "" },
+     { part: "ticks", n: 150, rand: "", len: 28 }, { part: "radar", red: "" }, { part: "ticks", n: 200, rand: "", len: 8, r: 44 }, { part: "sectors", red: "" }],
+    [{ part: "segs", red: "", dot: "" }, { part: "progress", value: 78 }, null, null, null, null, { part: "ticks", n: 90, len: 8, target: "" }, { part: "globe", lat: 12, lon: 6, red: "" }],
+    [{ part: "segs", guides: "", step: 7 }, { part: "ticks", n: 120, rand: "", len: 30, red: "" }, { part: "dotsphere", n: 400 }, { part: "ticks", n: 180, rand: "", len: 6, r: 44 },
+     { part: "spiral" }, { part: "segs", red: "", step: 4 }, { part: "cloud" }, { part: "segs", still: "", step: 12, red: "" }],
+    [{ part: "segs", step: 8 }, { part: "globe", lat: 6, lon: 16, dim: "" }, { part: "ticks", n: 90, len: 10, inner: "", red: "" }, { part: "globe", lat: 1, lon: 18 },
+     { part: "ticks", n: 72, len: 2, red: "" }, { part: "radar" }, { part: "ticks", n: 36, len: 4, red: "" }, { part: "segs", red: "", min: 20 }],
+  ];
+  const stage = document.getElementById("stage");
+  rows.forEach((row, y) => row.forEach((spec, x) => {
+    if (!spec) return;
+    const el = document.createElement("div");
+    for (const [k, v] of Object.entries(spec)) el.dataset[k] = v;
+    Object.assign(el.style, { left: `${30 + x * 196}px`, top: `${18 + y * 186}px`, width: "150px", height: "150px" });
+    stage.appendChild(el);
+  }));
+</script>
+<script src="../js/parts.js"></script>
+</body>
+</html>
